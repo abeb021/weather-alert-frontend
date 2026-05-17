@@ -3,7 +3,14 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { Mail, Lock, Loader2, ArrowRight } from "lucide-react"
 import { login } from "@/lib/auth"
+
+const fieldStyle = {
+  background: "rgba(8,14,26,0.6)",
+  borderColor: "rgba(56,189,248,0.15)",
+  color: "#e8f0f8",
+}
 
 export default function LoginPage() {
   const router = useRouter()
@@ -28,45 +35,78 @@ export default function LoginPage() {
 
   return (
     <>
-      <h2 className="text-xl font-semibold text-white mb-6">Sign in</h2>
+      <h2 className="text-lg font-semibold mb-1" style={{ color: "#e8f0f8", letterSpacing: "-0.02em" }}>
+        Sign in
+      </h2>
+      <p className="text-sm mb-6" style={{ color: "#4a6580" }}>Welcome back</p>
+
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        {/* Email */}
         <div>
-          <label className="block text-sm text-gray-400 mb-1">Email</label>
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            placeholder="you@example.com"
-          />
+          <label className="block text-xs font-medium mb-1.5 tracking-wide uppercase" style={{ color: "#4a6580", letterSpacing: "0.06em" }}>
+            Email
+          </label>
+          <div className="relative">
+            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5" style={{ color: "#4a6580" }} />
+            <input
+              type="email" required value={email} onChange={e => setEmail(e.target.value)}
+              className="w-full pl-9 pr-3 py-2.5 rounded-xl border text-sm transition-all outline-none"
+              style={fieldStyle}
+              placeholder="you@example.com"
+              onFocus={e => e.target.style.borderColor = "rgba(56,189,248,0.5)"}
+              onBlur={e => e.target.style.borderColor = "rgba(56,189,248,0.15)"}
+            />
+          </div>
         </div>
+
+        {/* Password */}
         <div>
-          <label className="block text-sm text-gray-400 mb-1">Password</label>
-          <input
-            type="password"
-            required
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
-            placeholder="••••••••"
-          />
+          <label className="block text-xs font-medium mb-1.5 tracking-wide uppercase" style={{ color: "#4a6580", letterSpacing: "0.06em" }}>
+            Password
+          </label>
+          <div className="relative">
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5" style={{ color: "#4a6580" }} />
+            <input
+              type="password" required value={password} onChange={e => setPassword(e.target.value)}
+              className="w-full pl-9 pr-3 py-2.5 rounded-xl border text-sm transition-all outline-none"
+              style={fieldStyle}
+              placeholder="••••••••"
+              onFocus={e => e.target.style.borderColor = "rgba(56,189,248,0.5)"}
+              onBlur={e => e.target.style.borderColor = "rgba(56,189,248,0.15)"}
+            />
+          </div>
         </div>
-        {error && <p className="text-red-400 text-sm">{error}</p>}
+
+        {/* Error */}
+        {error && (
+          <div className="text-xs rounded-xl px-3 py-2.5" style={{
+            background: "rgba(239,68,68,0.08)",
+            border: "1px solid rgba(239,68,68,0.2)",
+            color: "#f87171",
+          }}>
+            {error}
+          </div>
+        )}
+
+        {/* Submit */}
         <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium py-2 rounded-lg transition-colors"
+          type="submit" disabled={loading}
+          className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium transition-all mt-1 disabled:opacity-50"
+          style={{ background: "linear-gradient(135deg, #0284c7, #0ea5e9)", color: "white", boxShadow: "0 4px 16px rgba(14,165,233,0.3)" }}
         >
+          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
           {loading ? "Signing in…" : "Sign in"}
         </button>
       </form>
-      <p className="mt-6 text-center text-sm text-gray-500">
-        No account?{" "}
-        <Link href="/register" className="text-blue-400 hover:text-blue-300">
-          Register
-        </Link>
-      </p>
+
+      <div className="mt-6 pt-5" style={{ borderTop: "1px solid rgba(56,189,248,0.08)" }}>
+        <p className="text-center text-xs" style={{ color: "#4a6580" }}>
+          No account?{" "}
+          <Link href="/register" className="font-medium transition-colors" style={{ color: "#38bdf8" }}>
+            Create one
+          </Link>
+        </p>
+      </div>
     </>
   )
 }

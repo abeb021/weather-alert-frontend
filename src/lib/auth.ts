@@ -52,22 +52,15 @@ export function getClient(): Client<paths> {
 
 // ── Auth-aware fetch with auto-refresh ────────────────────────────────────────
 
+// openapi-fetch returns {data, error, response} — does NOT throw on 4xx.
+// We inspect response.status to detect 401 and attempt token refresh.
 export async function authFetch<T>(fn: (client: Client<paths>) => Promise<T>): Promise<T> {
-  const client = getClient();
+  const result = await fn(getClient());
 
-  try {
-    const result = await fn(client);
-    return result;
-  } catch (err: unknown) {
-    const isUnauthorized =
-      err instanceof Response
-        ? err.status === 401
-        : typeof err === "object" && err !== null && "status" in err && (err as { status: unknown }).status === 401;
+  const status = (result as { response?: Response }).response?.status;
+  if (status !== 401) return result;
 
-    if (!isUnauthorized) throw err;
-  }
-
-  // Attempt token refresh
+  // 401 — try refresh
   const refreshToken = getRefreshToken();
   if (!refreshToken) {
     clearTokens();
