@@ -34,7 +34,7 @@ export function getClient(): Client<paths> {
   if (_client) return _client;
 
   _client = createClient<paths>({
-    baseUrl: process.env.NEXT_PUBLIC_API_URL ?? "http://localhost",
+    baseUrl: process.env.NEXT_PUBLIC_API_URL || "",
   });
 
   _client.use({
