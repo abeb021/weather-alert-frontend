@@ -5,10 +5,10 @@ type Alert = components["schemas"]["Alert"]
 
 const CONDITION_META: Record<string, { label: string; icon: React.ElementType; accent: string; bg: string }> = {
   temp_above: { label: "Temp above",  icon: Thermometer, accent: "#f97316", bg: "rgba(249,115,22,0.08)" },
-  temp_below: { label: "Temp below",  icon: Thermometer, accent: "#38bdf8", bg: "rgba(56,189,248,0.08)" },
-  wind_above: { label: "Wind above",  icon: Wind,        accent: "#22d3ee", bg: "rgba(34,211,238,0.08)" },
-  rain:       { label: "Rain",        icon: CloudRain,   accent: "#60a5fa", bg: "rgba(96,165,250,0.08)" },
-  snow:       { label: "Snow",        icon: Snowflake,   accent: "#a78bfa", bg: "rgba(167,139,250,0.08)" },
+  temp_below: { label: "Temp below",  icon: Thermometer, accent: "#4ade80", bg: "rgba(74,222,128,0.08)" },
+  wind_above: { label: "Wind above",  icon: Wind,        accent: "#14b8a6", bg: "rgba(20,184,166,0.08)" },
+  rain:       { label: "Rain",        icon: CloudRain,   accent: "#22c55e", bg: "rgba(34,197,94,0.08)" },
+  snow:       { label: "Snow",        icon: Snowflake,   accent: "#a3e635", bg: "rgba(163,230,53,0.08)" },
 }
 
 const NO_THRESHOLD = new Set(["rain", "snow"])

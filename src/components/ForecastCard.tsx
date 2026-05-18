@@ -37,7 +37,7 @@ export default function ForecastCard({ date, temp_day, temp_night, condition, wi
       style={{
         background: isToday ? "var(--accent)" : "var(--surface)",
         border: `1px solid ${isToday ? "transparent" : "var(--border)"}`,
-        boxShadow: isToday ? "0 4px 20px rgba(14,165,233,0.25)" : "none",
+        boxShadow: isToday ? "0 4px 20px var(--accent-shadow)" : "none",
       }}
     >
       {/* Day label */}
@@ -49,7 +49,7 @@ export default function ForecastCard({ date, temp_day, temp_night, condition, wi
       </p>
 
       {/* Emoji */}
-      <span className="text-2xl leading-none">{conditionEmoji(condition)}</span>
+      <span className="apple-emoji text-2xl leading-none">{conditionEmoji(condition)}</span>
 
       {/* Temps */}
       <div className="flex items-baseline gap-2">

@@ -98,7 +98,7 @@ export default function WeatherPage() {
         <button
           type="submit" disabled={loading}
           className="flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium transition-all disabled:opacity-50"
-          style={{ background: "var(--accent)", color: "white", boxShadow: "0 2px 12px rgba(14,165,233,0.3)" }}
+          style={{ background: "var(--accent)", color: "white", boxShadow: "0 2px 12px var(--accent-shadow)" }}
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Search className="h-4 w-4" />}
           <span className="hidden sm:inline">Search</span>

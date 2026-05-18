@@ -3,23 +3,25 @@
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f0f4f8;
-  --foreground: #0d1b2a;
+  --background: #f1f7f2;
+  --foreground: #102016;
   --surface:    #ffffff;
-  --border:     #dde5ee;
-  --muted:      #5a7184;
-  --accent:     #0284c7;
-  --accent-2:   #0ea5e9;
+  --border:     #dce8dd;
+  --muted:      #5d7363;
+  --accent:     #16803a;
+  --accent-2:   #22c55e;
+  --accent-shadow: rgba(34,197,94,0.28);
 }
 
 .dark {
-  --background: #080e1a;
-  --foreground: #e8f0f8;
-  --surface:    #0f1c2e;
-  --border:     #1e3048;
-  --muted:      #4a6580;
-  --accent:     #38bdf8;
-  --accent-2:   #0ea5e9;
+  --background: #07130c;
+  --foreground: #e9f8ee;
+  --surface:    #0e2115;
+  --border:     #1d3a27;
+  --muted:      #6f8f77;
+  --accent:     #4ade80;
+  --accent-2:   #22c55e;
+  --accent-shadow: rgba(34,197,94,0.30);
 }
 
 @theme inline {
@@ -34,6 +36,11 @@ body {
   color: var(--foreground);
   transition: background 0.3s ease, color 0.3s ease;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.apple-emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-feature-settings: normal;
 }
 
 /* Scrollbar */

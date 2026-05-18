@@ -21,12 +21,12 @@ function conditionEmoji(condition: string | undefined) {
 function conditionGradient(condition: string | undefined, temp: number | undefined) {
   const c = condition?.toLowerCase() ?? ""
   if (c === "clear")                          return "from-amber-500/10 via-transparent to-transparent"
-  if (c === "rain" || c === "drizzle")        return "from-blue-500/10 via-transparent to-transparent"
+  if (c === "rain" || c === "drizzle")        return "from-emerald-500/10 via-transparent to-transparent"
   if (c === "thunderstorm")                   return "from-purple-500/10 via-transparent to-transparent"
-  if (c === "snow")                           return "from-indigo-300/10 via-transparent to-transparent"
+  if (c === "snow")                           return "from-teal-200/10 via-transparent to-transparent"
   if ((temp ?? 0) > 25)                       return "from-orange-500/8 via-transparent to-transparent"
-  if ((temp ?? 0) < 5)                        return "from-cyan-400/8 via-transparent to-transparent"
-  return "from-sky-500/8 via-transparent to-transparent"
+  if ((temp ?? 0) < 5)                        return "from-lime-300/8 via-transparent to-transparent"
+  return "from-green-500/8 via-transparent to-transparent"
 }
 
 export default function WeatherCard({ city, temperature, feels_like, condition, wind_speed, humidity, timestamp }: Props) {
@@ -52,7 +52,7 @@ export default function WeatherCard({ city, temperature, feels_like, condition, 
         <div className="flex items-start justify-between mb-8">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-2xl">{conditionEmoji(condition)}</span>
+              <span className="apple-emoji text-2xl">{conditionEmoji(condition)}</span>
               <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{
                 background: "var(--background)",
                 color: "var(--muted)",

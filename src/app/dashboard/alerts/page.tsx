@@ -57,7 +57,7 @@ export default function AlertsPage() {
         <button
           onClick={() => router.push("/dashboard/alerts/new")}
           className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-all"
-          style={{ background: "var(--accent)", color: "white", boxShadow: "0 2px 12px rgba(14,165,233,0.3)" }}
+          style={{ background: "var(--accent)", color: "white", boxShadow: "0 2px 12px var(--accent-shadow)" }}
         >
           <Plus className="h-4 w-4" />
           New Alert

@@ -53,7 +53,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {/* Logo */}
           <div className="flex items-center gap-5">
             <Link href="/dashboard/weather" className="flex items-center gap-2 select-none">
-              <span className="text-lg">⛅</span>
+              <span className="apple-emoji text-lg">⛅</span>
               <span className="text-sm font-semibold tracking-tight hidden sm:block" style={{ color: "var(--foreground)", letterSpacing: "-0.02em" }}>
                 WeatherAlert
               </span>
@@ -72,7 +72,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     href={href}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
                     style={active
-                      ? { background: "var(--accent)", color: "#fff", boxShadow: "0 2px 8px rgba(14,165,233,0.3)" }
+                      ? { background: "var(--accent)", color: "#fff", boxShadow: "0 2px 8px var(--accent-shadow)" }
                       : { color: "var(--muted)" }
                     }
                     onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.color = "var(--foreground)" }}

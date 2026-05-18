@@ -113,7 +113,7 @@ export default function NewAlertPage() {
             </button>
             <button type="submit" disabled={loading}
               className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium transition-all disabled:opacity-50"
-              style={{ background: "var(--accent)", color: "white", boxShadow: "0 2px 12px rgba(14,165,233,0.3)" }}>
+              style={{ background: "var(--accent)", color: "white", boxShadow: "0 2px 12px var(--accent-shadow)" }}>
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
               {loading ? "Creating…" : "Create alert"}
             </button>
